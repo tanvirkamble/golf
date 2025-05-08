@@ -1,0 +1,607 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'montserrat';
+  color: #fff;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+#cursor {
+  position: fixed;
+  border-radius: 50%;
+  background-color: #a7d921;
+  width: 20px;
+  height: 20px;
+  z-index: 1;
+  transition: all 0.18s ease; /* slow return transition */
+}
+/* .cursor-active {
+  z-index: 10 !important;
+}
+.cursor-inactive {
+  z-index: 0 !important;
+} */
+
+#cursor-blur {
+  position: fixed;
+  border-radius: 50%;
+  background-color: #a8d92163;
+  width: 300px;
+  height: 300px;
+  filter: blur(70px);
+  z-index: 1;
+}
+
+#nav {
+  width: 100%;
+  height: 100px;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 15px 130px 15px;
+  column-gap: 40px;
+  z-index: 3;
+  position: fixed;
+}
+#nav img {
+  height: 75px;
+  padding-right: 70px;
+}
+#nav h4 {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.nav_head h4:hover {
+  color: #a7d921;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  object-fit: cover;
+  z-index: -1;
+}
+
+#main {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.618);
+}
+
+#page1 {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 100px;
+  row-gap: 10px;
+  text-align: center;
+  z-index: 2;
+}
+
+#circle img {
+  width: 25%;
+  height: 100%;
+}
+#circle {
+  position: absolute;
+  left: 4%;
+  top: 75%;
+  width: 12.5%;
+  height: 25%;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #a7d921;
+}
+#circle:hover {
+  animation: zoomInFade 0.4s ease-in-out forwards;
+  background-color: #a7d921;
+}
+#circle:hover img {
+  transform: scale(2);
+}
+@keyframes zoomInFade {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+}
+
+#page1 h1 {
+  font-size: 80px;
+  font-weight: 900;
+  text-transform: uppercase;
+  position: relative;
+}
+#page1 h1::before {
+  content: 'Eat. Drink. Play.';
+  position: absolute;
+  color: black;
+  left: -3px;
+  top: 2px;
+  z-index: -1;
+  -webkit-text-stroke: 2px #a7d921;
+}
+#page1 h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#page1 p {
+  font-size: 15px;
+  font-weight: 400;
+  width: 80%;
+}
+#page2 {
+  min-height: 100vh;
+  width: 100%;
+  z-index: 2;
+}
+
+#scroller {
+  /* background-color: #000; */
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  z-index: 1;
+  position: relative;
+  /* touch-action: none; Prevents touch-based scroll on mobile */
+  z-index: 2;
+}
+#scroller::-webkit-scrollbar {
+  display: none;
+}
+#scroller-in {
+  display: inline-block;
+  white-space: nowrap;
+  animation-name: scroll;
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+#scroller h4 {
+  display: inline-block;
+  font-size: 70px;
+  font-weight: 900;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  margin-right: 10px;
+  transition: all linear 0.4s;
+  color: transparent;
+  -webkit-text-stroke: 1px #fff;
+}
+#scroller h4:hover {
+  color: #a7d921;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+#page2_2 {
+  width: 100%;
+  height: 50vh;
+  /* background-color: red; */
+  display: flex;
+  padding: 0 2%;
+
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  margin: 10% 0%;
+  z-index: 2;
+}
+
+#page2_2 img {
+  width: 23%;
+  height: 70%;
+  border-radius: 10%;
+  object-fit: cover;
+  margin-top: 5%;
+}
+
+#aboutUs {
+  text-align: center;
+  width: 45%;
+}
+
+#aboutUs h3 {
+  font-weight: 900px;
+  font-size: 50px;
+  padding: 2%;
+  margin-bottom: 2%;
+  text-transform: uppercase;
+  font-family: sans-serif;
+}
+
+#aboutUs p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  margin-bottom: 5%;
+}
+
+#card_container {
+  /* background-color: red; */
+
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3%;
+  margin-top: 10%;
+}
+.card {
+  height: 80%;
+  width: 23%;
+  /* background: #000; */
+  border-radius: 30px;
+  background-position: center;
+  background-size: cover;
+  z-index: 2;
+  overflow: hidden;
+  transition: all ease 0.6s;
+}
+#card1 {
+  background-image: url('/assets/golfCard1.avif');
+}
+#card2 {
+  background-image: url('/assets/golfCard2.avif');
+}
+#card3 {
+  background-image: url('/assets/golfCard3.avif');
+}
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: #a7d921;
+  padding: 30px;
+  padding-top: 90px;
+  transition: all ease 0.6s;
+  opacity: 0;
+}
+.overlay h4 {
+  color: #000;
+  text-transform: uppercase;
+  /* white-space: nowrap; */
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 900;
+}
+.overlay p {
+  color: #000;
+  font-weight: 10;
+}
+.card:hover .overlay {
+  opacity: 1;
+}
+
+/* .card:hover {
+  transform: rotate3d(1, 1, 0, 20deg);
+} */
+/* cant use this as the gsap animation effect conflicts this and this code doesnt works so alrtenative is written*/
+
+@keyframes rotateCard {
+  0% {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+  100% {
+    transform: rotate3d(1, 1, 0, 17deg);
+  }
+}
+
+.card:hover {
+  animation: rotateCard 0.3s forwards;
+}
+
+.card img {
+  position: absolute;
+  height: 12%;
+  width: 17%;
+  top: 3%;
+  right: 4.5%;
+  margin-right: 5%;
+}
+.img_border {
+  color: #000;
+  border: 2px solid;
+  border-radius: 100%;
+  width: 80%;
+  height: 40%;
+  position: absolute;
+  top: -15%;
+  right: -40%;
+}
+
+#page2_4 {
+  z-index: 2;
+}
+
+.greendiv {
+  margin-top: 5%;
+  height: 50vh;
+  width: 100%;
+  /* background-color: #a7d921; */
+  background: linear-gradient(to left bottom, #32a833, #a7d921);
+  display: flex;
+  z-index: 2;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.greendiv h4 {
+  font-size: 200%;
+  font-weight: 800;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  color: black;
+  text-align: center;
+}
+
+.greendiv img {
+  height: 100%;
+  width: 14%;
+  object-fit: cover;
+  /* height: 50vh; */
+}
+.greendiv #left_img {
+  transform: scaleX(-1);
+}
+
+#page3 {
+  width: 100%;
+  height: 130vh;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3%;
+  padding: 0 10%;
+}
+
+#page3 img {
+  height: 70%;
+  width: 170%;
+  border-radius: 50px;
+  z-index: 2;
+}
+#page3 h2 {
+  font-size: 300%;
+  font-weight: 900;
+  font-family: sans-serif;
+  margin-bottom: 10%;
+}
+#page3 p {
+  font-size: 170%;
+  font-weight: 500;
+  margin-bottom: 10%;
+  text-align: justify;
+}
+.page3_text {
+  z-index: 2;
+}
+
+#page4 {
+  z-index: 2;
+  width: 100%;
+  height: 125vh;
+  /* background: red; */
+  padding-bottom: 7vh;
+}
+#page4_1 {
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#page4_1 p {
+  font-size: 150%;
+  font-weight: 760;
+  line-height: 30px;
+  text-align: center;
+  width: 60%;
+}
+#page4_1 img {
+  height: 10%;
+}
+
+#page4_1 #quote1 {
+  position: absolute;
+  left: 12%;
+  top: 30%;
+}
+#page4_1 #quote2 {
+  position: absolute;
+  right: 12%;
+  bottom: 30%;
+}
+
+#page4_2 {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+#page4_2 h2 {
+  font-size: 70px;
+  font-weight: 900;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  white-space: nowrap;
+  position: absolute;
+  color: transparent;
+  -webkit-text-stroke: 2px #fff;
+}
+.Card {
+  width: 25%;
+  height: 60%;
+  background-color: #a7d921;
+  margin: 0 3%;
+  margin-top: 11%;
+  position: relative;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.Card h4 {
+  color: black;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 200%;
+  font-family: sans-serif;
+  position: absolute;
+  text-align: center;
+}
+.Card img {
+  opacity: 0.2;
+  border-radius: 20px;
+  object-fit: cover;
+  transition: all ease 0.5s;
+  scale: 1.1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+/* .Card:hover img {
+  scale: 1;
+  opacity: 1;
+}
+.Card:hover h4 {
+  color: #fff;
+  background-color: transparent;
+  z-index: 3;
+  } */
+.Card:hover img {
+  animation: zoomImg 0.5s ease forwards;
+}
+
+.Card:hover h4 {
+  animation: glowText 0.5s ease forwards;
+}
+
+@keyframes zoomImg {
+  from {
+    transform: scale(1.1);
+    opacity: 0.2;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes glowText {
+  from {
+    color: black;
+  }
+  to {
+    color: white;
+    z-index: 3;
+  }
+}
+
+#footer {
+  /* margin-top: 7%; */
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  background: linear-gradient(to left bottom, #32a833, #a7d921);
+  text-transform: uppercase;
+  position: relative;
+}
+#bgImg {
+  width: 20%;
+  height: 100%;
+  position: absolute;
+}
+#bgImg img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.footer_text > div > h4:hover {
+  color: #000;
+  transform: scale(1.05);
+  transition: all ease 0.4s;
+}
+.footer_text {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 2%;
+  position: relative;
+}
+#f1 {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#f1 img {
+  width: 40%;
+  height: 40%;
+}
+#socials img {
+  margin-top: 3%;
+  width: 15%;
+}
+
+#f2 h4 {
+  font-size: 220%;
+  font-weight: 900;
+  /* font-family: sans-serif; */
+  text-transform: uppercase;
+  margin-bottom: 2%;
+}
+
+#f3 h4 {
+  font-size: 220%;
+  font-weight: 900;
+  /* font-family: sans-serif; */
+  text-transform: uppercase;
+  margin-bottom: 2%;
+}
+
+#f4 {
+  width: 17%;
+}
+#f4 h4 {
+  font-size: 150%;
+  font-weight: 200;
+  /* font-family: sans-serif; */
+  text-transform: uppercase;
+  margin-bottom: 2%;
+}
